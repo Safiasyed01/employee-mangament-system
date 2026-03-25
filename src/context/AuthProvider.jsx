@@ -1,30 +1,18 @@
-// import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect } from "react";
+import { setLocalStorage, getLocalStorage } from "../utils/Localstorage";
 
 export const AuthContext = createContext();
 
-const setLocalStorage = () => {
-  if (!localStorage.getItem("employees")) {
-    localStorage.setItem("employees", JSON.stringify([]));
-  }
-};
-
-const getLocalStorage = () => {
-  const employees = JSON.parse(localStorage.getItem("employees")) || [];
-  return { employees };
-};
-
 const AuthProvider = ({ children }) => {
-  const [userData, setUserData] = useState(null);
+  const [userData, setUserData] = useState([]);
 
   useEffect(() => {
-    setLocalStorage();
+    setLocalStorage();            // seed data once
     const { employees } = getLocalStorage();
     setUserData(employees);
   }, []);
 
-  const changeUser = (newUser) => {
-    setUserData(newUser);
-  };
+  const changeUser = (newUser) => setUserData(newUser);
 
   return (
     <AuthContext.Provider value={{ userData, changeUser }}>
