@@ -41,13 +41,13 @@ const TaskList = ({ data }) => {
         if(elem.active){
           return <Accepttask key={idx} data={elem}/>
         }
-        if(elem.active){
+        if(elem.NewTask){
           return<NewTask key={idx} data={elem}/>
         }
-        if (elem.active){
+        if (elem.Complt){
           return <CompltTask key={idx} data={elem}/>
         }
-        if (elem.active){
+        if (elem.Failed){
           return<Failedtask key={idx} data={elem}elem/>  
         }
       }
