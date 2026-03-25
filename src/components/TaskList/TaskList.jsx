@@ -1,63 +1,29 @@
-// import React from 'react'
-// import Accepttask from './Accepttask'
-// import Failedtask from './Failedtask'
-// import NewTask from './NewTask'
-// import CompltTask from './CompltTask'
-// const TaskList = ({data}) => {
-//   return (
-//     <div id='tasklist' className='h-[55%] w-full overflow-x-auto flex items-center justify-start gap-5 flex-nowrap py-5  mt-10'>
-//        <Accepttask/>
-//         <NewTask/>
-//         <Failedtask/>
-//         <CompltTask/>
-
-      
-
-
-
-//         </div>
-        
-
-
-
-//   )
-// }
-
-// export default TaskList
-
 import React from 'react'
-import Accepttask from './Accepttask'
-import Failedtask from './Failedtask'
+import AcceptTask from './AcceptTask'
 import NewTask from './NewTask'
 import CompltTask from './CompltTask'
+import FailedTask from './FailedTask'
 
 const TaskList = ({ data }) => {
-  return (
-    <div
-      id='tasklist'
-      className='h-[55%] w-full overflow-x-auto flex items-center justify-start gap-5 flex-nowrap py-5 mt-10'
-    >
-      {data.tasks.map((elem , idx)=>{
-        if(elem.active){
-          return <Accepttask key={idx} data={elem}/>
-        }
-        if(elem.NewTask){
-          return<NewTask key={idx} data={elem}/>
-        }
-        if (elem.Complt){
-          return <CompltTask key={idx} data={elem}/>
-        }
-        if (elem.Failed){
-          return<Failedtask key={idx} data={elem}elem/>  
-        }
-      }
-      )}
-      {/* <Accepttask />
-      <NewTask />
-      <Failedtask />
-      <CompltTask /> */}
-    </div>
-  )
+    return (
+        <div id='tasklist' className='h-[50%] overflow-x-auto flex items-center justify-start gap-5 flex-nowrap w-full py-1 mt-16'>
+            {data.tasks.map((elem, idx) => {
+                if (elem.active) {
+                    return <AcceptTask key={idx} data={elem} />
+                }
+                if (elem.newTask) {
+                    return <NewTask key={idx} data={elem} />
+                }
+                if (elem.completed) {
+                    return <CompltTask key={idx} data={elem} />
+                }
+                if (elem.failed) {
+                    return <FailedTask key={idx} data={elem} />
+                }
+
+            })}
+        </div>
+    )
 }
 
 export default TaskList
