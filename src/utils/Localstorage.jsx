@@ -5,7 +5,7 @@ firstName: "Ali",
 email: "employee1@gmail.com",
 password: "123",
 
-taskNumbers:{
+taskCounts:{
 active:1,
 newTask:1,
 completed:1,
@@ -52,7 +52,7 @@ firstName: "Ahmed",
 email: "employee2@gmail.com",
 password: "123",
 
-taskNumbers:{
+taskCounts:{
 active:1,
 newTask:1,
 completed:1,
@@ -99,11 +99,11 @@ firstName: "Hassan",
 email: "employee3@gmail.com",
 password: "123",
 
-taskNumbers:{
-active:1,
+taskCounts:{
+active:3,
 newTask:1,
-completed:1,
-failed:1
+completed:3,
+failed:2
 },
 
 tasks: [
@@ -146,7 +146,7 @@ firstName: "Usman",
 email: "employee4@gmail.com",
 password: "123",
 
-taskNumbers:{
+taskCounts:{
 active:1,
 newTask:1,
 completed:1,
@@ -193,7 +193,7 @@ firstName: "Bilal",
 email: "employee5@gmail.com",
 password: "123",
 
-taskNumbers:{
+taskCounts:{
 active:1,
 newTask:1,
 completed:1,

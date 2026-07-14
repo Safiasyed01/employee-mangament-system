@@ -11,32 +11,28 @@ const CreateTask = () => {
     const [asignTo, setAsignTo] = useState('')
     const [category, setCategory] = useState('')
 
-    const [newTask, setNewTask] = useState({})
 
-    const submitHandler = (e) => {
-        e.preventDefault()
+const submitHandler = (e) => {
+    e.preventDefault()
 
-        setNewTask({ taskTitle, taskDescription, taskDate, category, active: false, newTask: true, failed: false, completed: false })
+    const task = { taskTitle, taskDescription, taskDate, category, active: false, newTask: true, failed: false, completed: false }
 
-        const data = userData
+    const data = [...userData]
 
-        data.forEach(function (elem) {
-            if (asignTo == elem.firstName) {
-                elem.tasks.push(newTask)
-                elem.taskCounts.newTask = elem.taskCounts.newTask + 1
-            }
-        })
-        setUserData(data)
-        console.log(data);
+    data.forEach(function (elem) {
+        if (asignTo == elem.firstName) {
+            elem.tasks.push(task)
+            elem.taskCounts.newTask = elem.taskCounts.newTask + 1
+        }
+    })
+    setUserData(data)
 
-        setTaskTitle('')
-        setCategory('')
-        setAsignTo('')
-        setTaskDate('')
-        setTaskDescription('')
-
-    }
-
+    setTaskTitle('')
+    setCategory('')
+    setAsignTo('')
+    setTaskDate('')
+    setTaskDescription('')
+}
     return (
         <div className='p-5 bg-[#1c1c1c] mt-5 rounded'>
             <form onSubmit={(e) => {
